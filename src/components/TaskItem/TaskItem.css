@@ -56,6 +56,7 @@
     border: none;
     color: red;
     font-size: medium;
+    cursor: pointer;
 }
 
 .taskToolbar select{
@@ -63,6 +64,7 @@
     padding: 5px 10px;
     border-radius: 5px;
     border: unset;
+    cursor: pointer;
 }
 
 .taskToolbar select.pending{

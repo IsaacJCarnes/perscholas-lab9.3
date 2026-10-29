@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import { type Task } from "./types";
 import { TaskList } from "./components/TaskList/TaskList";
 import { TaskFilter } from "./components/TaskFilter/TaskFilter";
@@ -31,22 +32,32 @@ const taskArray: Array<Task> = [
 ];
 
 function App() {
-  function onStatusChange(id: string, status: string) {
-    console.log(id, status);
+  const [tasks, setTasks] = useState(taskArray);
+  const [filter, setFilter] = useState<{ priority?: string; status?: string }>(
+    {},
+  );
+
+  function onStatusChange(id: string, newStatus: string) {
+    setTasks(
+      tasks.map((task) =>
+        task.id == id ? { ...task, status: newStatus } : task,
+      ) as [Task],
+    );
   }
 
   function onDelete(id: string) {
-    console.log(id, "Delete");
+    setTasks(tasks.filter((task) => task.id !== id));
   }
 
-  function onFilterChange(filter: Object) {
-    console.log(filter);
-  }
   return (
     <>
-      <TaskFilter onFilterChange={onFilterChange} />
+      <TaskFilter onFilterChange={setFilter} />
       <TaskList
-        tasks={taskArray}
+        tasks={tasks.filter(
+          (task) =>
+            task.priority.includes(filter["priority"] || "") &&
+            task.status.includes(filter["status"] || ""),
+        )}
         onStatusChange={onStatusChange}
         onDelete={onDelete}
       />

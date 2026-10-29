@@ -19,4 +19,5 @@
     background-color: rgb(69, 69, 119);
     font-size: large;
     border-radius: 5px;
+    cursor: pointer;
 }

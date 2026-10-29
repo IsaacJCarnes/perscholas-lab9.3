@@ -7,7 +7,10 @@ export const TaskItem = (props: TaskItemProps) => {
       <h3 className="txt-cw txt-lg txt-w7">{props.task.title}</h3>
       <p className="description">{props.task.description}</p>
       <div className="taskStats">
-        <p className={"priority " + props.task.priority}>Priority: {props.task.priority}</p> <p className="dueDate">Due: {props.task.dueDate}</p>
+        <p className={"priority " + props.task.priority}>
+          Priority: {props.task.priority}
+        </p>{" "}
+        <p className="dueDate">Due: {props.task.dueDate}</p>
       </div>
       <div className="taskToolbar">
         <select
@@ -21,7 +24,7 @@ export const TaskItem = (props: TaskItemProps) => {
           <option value={"in-progress"}>In Progress</option>
           <option value={"completed"}>Completed</option>
         </select>
-        <button>Delete</button>
+        <button onClick={() => props.onDelete(props.task.id)}>Delete</button>
       </div>
     </li>
   );
