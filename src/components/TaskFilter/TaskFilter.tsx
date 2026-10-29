@@ -10,7 +10,7 @@ export const TaskFilter = (props: TaskFilterProps) => {
     props.onFilterChange(filter);
   }
   return (
-    <form onChange={(e) => formChangeEvent(e)}>
+    <form onChange={(e) => formChangeEvent(e)} id="FilterForm">
       <label>Status</label>
       <select name="status">
         <option value="">All Statuses</option>

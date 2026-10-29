@@ -29,6 +29,7 @@ const taskArray: Array<Task> = [
     dueDate: "1/2/2024",
   },
 ];
+
 function App() {
   function onStatusChange(id: string, status: string) {
     console.log(id, status);

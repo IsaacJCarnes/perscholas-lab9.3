@@ -1,0 +1,22 @@
+#FilterForm{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+  
+}
+
+#FilterForm label{
+    grid-row-start: 0;
+    grid-row-end: 1; 
+    font-size: large;
+    color:rgb(69, 69, 119);
+    font-weight: 400;
+}
+
+#FilterForm select{
+    border: none;
+    padding: 5px;
+    background-color: rgb(69, 69, 119);
+    font-size: large;
+    border-radius: 5px;
+}
