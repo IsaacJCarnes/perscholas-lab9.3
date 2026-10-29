@@ -1,0 +1,8 @@
+ - How did you ensure unique keys for your list items?
+  - I used their index in the map function for its key.
+ - What considerations did you make when implementing the filtering functionality?
+  - I wanted to make sure the filter itself does not change any state for the task array and instead just is used to set up a filter method ontop of the task state variable.
+ - How did you handle state updates for task status changes?
+  - When the status is changed the task item calls the callback function with its id as one of the parameters. With this id I then mapped over the task array to find the target task to change and in that same map function condtionally return a new object with that changed state if the ids match.
+ - What challenges did you face when implementing conditional rendering?
+  - When updating the filter object and then immedietly using the callback function to update the filter state in the parent, it would cause the parents state to be behind the current filters state. To remedy this I used useEffect to update the parent state when the filters state changes in the child component.
